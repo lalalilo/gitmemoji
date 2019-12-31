@@ -1,0 +1,31 @@
+version: 2.1
+workflows:
+  workflow:
+    jobs:
+      - build-and-deploy:
+          filters:
+            branches:
+              only:
+                - master
+
+jobs:
+  build-and-deploy:
+    docker:
+      - image: circleci/node:12
+
+    working_directory: ~/gitmemoji
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install Dependencies
+          command: yarn
+
+      - run:
+          name: Build app
+          command: yarn build
+
+      - deploy:
+          name: Deploy to S3
+          command: yarn deploy gitmemoji.lalilo.com
