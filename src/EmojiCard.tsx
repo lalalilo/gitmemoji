@@ -1,14 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "./emoji-colors";
-
-interface EmojiData {
-  emoji: string;
-  entity?: string;
-  code: string;
-  description: string;
-  name: string;
-}
+import { EmojiData } from "./EmojiData";
 
 interface EmojiCardProps {
   emojiData: EmojiData;
