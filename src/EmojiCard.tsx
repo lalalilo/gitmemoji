@@ -6,11 +6,16 @@ import { EmojiData } from "./EmojiData";
 interface EmojiCardProps {
   emojiData: EmojiData;
   onClick: () => void;
+  className?: string;
 }
 
-const EmojiCard: React.FC<EmojiCardProps> = ({ emojiData, onClick }) => {
+const EmojiCard: React.FC<EmojiCardProps> = ({
+  emojiData,
+  onClick,
+  className
+}) => {
   return (
-    <Wrapper onClick={onClick}>
+    <Wrapper onClick={onClick} className={className}>
       <Emoji
         style={{
           backgroundColor: (colors as any)[emojiData.name] as any

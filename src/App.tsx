@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import styled from "styled-components";
+import "csshake";
+
 import EmojiCard from "./EmojiCard";
 import emojis from "./emojis.json";
 import sampleSize from "lodash/sampleSize";
@@ -12,11 +14,17 @@ const App: React.FC = () => {
     null
   );
   const [choices, setChoices] = useState<EmojiData[] | null>(null);
-  useEffect(() => {
+  const [shake, setShake] = useState<string | null>(null);
+
+  const setNewQuestion = useCallback(() => {
     const [question, ...possibleAnswers] = sampleSize(emojis.gitmojis, 4);
     setCurrentQuestion(question);
     setChoices(shuffle([question, ...possibleAnswers]));
   }, []);
+
+  useEffect(() => {
+    setNewQuestion();
+  }, [setNewQuestion]);
 
   if (!currentQuestion || !choices) {
     return null;
@@ -27,7 +35,19 @@ const App: React.FC = () => {
       <Description>{currentQuestion.description}</Description>
       <Choices>
         {choices.map(emoji => (
-          <EmojiCard emojiData={emoji} key={emoji.name} onClick={() => {}} />
+          <EmojiCard
+            emojiData={emoji}
+            key={emoji.name}
+            className={shake === emoji.name ? "shake-hard" : ""}
+            onClick={async () => {
+              if (emoji.name === currentQuestion.name) {
+                return setNewQuestion();
+              }
+              setShake(emoji.name);
+              await new Promise(resolve => setTimeout(resolve, 1000));
+              setShake(null);
+            }}
+          />
         ))}
       </Choices>
     </AppWrapper>
