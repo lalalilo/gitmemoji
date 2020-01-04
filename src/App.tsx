@@ -27,23 +27,33 @@ const App: React.FC = () => {
           isHardMode={isHardMode}
         />
       </HardModeSwitch>
-      <Question>{currentQuestion.description}</Question>
+      <Question
+        onClick={async () => {
+          setShake(currentQuestion.name);
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          setShake(null);
+        }}
+      >
+        {currentQuestion.description}
+      </Question>
       {isHardMode ? (
         <HardGrid>
           {emojis.gitmojis.map(emoji => (
-            <MinimalEmojiCard
-              emojiData={emoji}
-              key={emoji.code}
-              className={shake === emoji.name ? "shake" : ""}
-              onClick={async () => {
-                if (emoji.name === currentQuestion.name) {
-                  return setNewQuestion();
-                }
-                setShake(emoji.name);
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                setShake(null);
-              }}
-            />
+            <>
+              <MinimalEmojiCard
+                emojiData={emoji}
+                key={emoji.code}
+                className={shake === emoji.name ? "shake shake-constant" : ""}
+                onClick={async () => {
+                  if (emoji.name === currentQuestion.name) {
+                    return setNewQuestion();
+                  }
+                  setShake(emoji.name);
+                  await new Promise(resolve => setTimeout(resolve, 1000));
+                  setShake(null);
+                }}
+              />
+            </>
           ))}
         </HardGrid>
       ) : (
@@ -52,7 +62,7 @@ const App: React.FC = () => {
             <EmojiCard
               emojiData={emoji}
               key={emoji.name}
-              className={shake === emoji.name ? "shake" : ""}
+              className={shake === emoji.name ? "shake shake-constant" : ""}
               onClick={async () => {
                 if (emoji.name === currentQuestion.name) {
                   return setNewQuestion();
