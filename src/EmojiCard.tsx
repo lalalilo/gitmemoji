@@ -34,6 +34,7 @@ const Wrapper = styled.div`
   border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 1px 2px 0 rgba(168, 182, 191, 0.6);
+  cursor: pointer;
 
   display: flex;
   flex-direction: column;
