@@ -7,6 +7,7 @@ import emojis from "./emojis.json";
 import sampleSize from "lodash/sampleSize";
 import shuffle from "lodash/shuffle";
 import { EmojiData } from "./EmojiData";
+import GithubButton from "./GithubButton";
 
 const App: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState<EmojiData | null>(
@@ -31,6 +32,7 @@ const App: React.FC = () => {
 
   return (
     <Layout>
+      <PositionedNavbar />
       <Question>{currentQuestion.description}</Question>
       <Choices>
         {choices.map(emoji => (
@@ -56,6 +58,13 @@ const App: React.FC = () => {
 const Layout = styled.div`
   min-height: 100vh;
   background-color: #eee;
+`;
+
+const PositionedNavbar = styled(GithubButton)`
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10;
 `;
 
 const Question = styled.div`
