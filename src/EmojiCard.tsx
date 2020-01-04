@@ -16,41 +16,76 @@ const EmojiCard: React.FC<EmojiCardProps> = ({
 }) => {
   return (
     <Wrapper onClick={onClick} className={className}>
-      <Emoji
+      <EmojiWrapper
         style={{
-          backgroundColor: (colors as any)[emojiData.name] as any
+          backgroundColor: colors[emojiData.name]
         }}
       >
-        {emojiData.emoji}
-      </Emoji>
-      <Code>{emojiData.code}</Code>
+        <Emoji>{emojiData.emoji}</Emoji>
+      </EmojiWrapper>
+      <CodeWrapper>
+        <Code>{emojiData.code}</Code>
+      </CodeWrapper>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  width: 500px;
-  height: 285px;
   border-radius: 4px;
+  overflow: hidden;
   box-shadow: 0 1px 2px 0 rgba(168, 182, 191, 0.6);
-  margin: 1em;
 
   display: flex;
   flex-direction: column;
   background-color: #fff;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: row;
+  }
+`;
+
+const CardElement = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const EmojiWrapper = CardElement;
+const CodeWrapper = styled(CardElement)`
+  flex-grow: 1;
 `;
 
 const Emoji = styled.div`
   font-size: 80px;
   padding: 0.5em;
-  text-align: center;
+  @media screen and (max-width: 500px) {
+    font-size: 40px;
+    padding: 0.1em;
+  }
 `;
 
 const Code = styled.div`
   font-size: 30px;
   font-weight: bold;
   padding: 1em;
-  text-align: center;
+
+  @media screen and (max-width: 600px) and (min-width: 500px) {
+    font-size: 13px;
+  }
+  @media screen and (max-width: 700px) and (min-width: 600px) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: 800px) and (min-width: 700px) {
+    font-size: 22px;
+  }
+  @media screen and (max-width: 850px) and (min-width: 800px) {
+    font-size: 26px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 15px;
+    padding: 0.3em;
+  }
 `;
 
 export default EmojiCard;
