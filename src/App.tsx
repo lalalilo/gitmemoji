@@ -1,30 +1,14 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import "csshake";
 
 import EmojiCard from "./EmojiCard";
-import emojis from "./emojis.json";
-import sampleSize from "lodash/sampleSize";
-import shuffle from "lodash/shuffle";
-import { EmojiData } from "./EmojiData";
 import GithubButton from "./GithubButton";
+import useGitmojiQuizz from "./useGitmojiQuizz";
 
 const App: React.FC = () => {
-  const [currentQuestion, setCurrentQuestion] = useState<EmojiData | null>(
-    null
-  );
-  const [choices, setChoices] = useState<EmojiData[] | null>(null);
+  const { currentQuestion, choices, setNewQuestion } = useGitmojiQuizz();
   const [shake, setShake] = useState<string | null>(null);
-
-  const setNewQuestion = useCallback(() => {
-    const [question, ...possibleAnswers] = sampleSize(emojis.gitmojis, 4);
-    setCurrentQuestion(question);
-    setChoices(shuffle([question, ...possibleAnswers]));
-  }, []);
-
-  useEffect(() => {
-    setNewQuestion();
-  }, [setNewQuestion]);
 
   if (!currentQuestion || !choices) {
     return null;
