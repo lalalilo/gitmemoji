@@ -1,9 +1,5 @@
 # gitmemoji
 
-Gitmemoji ~is~ ~will be~ might be the best way to learn gitmoji emojis. At least this is an opportunity to code something open-source for fun.
-
-This app is available on gitmemoji.lalilo.com. If you want to contribute, have a look to the issues and pick one that suite your mood!
-
 ## Available Scripts
 
 In the project directory, you can run:
