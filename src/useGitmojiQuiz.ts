@@ -5,7 +5,7 @@ import sampleSize from "lodash/sampleSize";
 import { EmojiData } from "./EmojiData";
 import emojis from "./emojis.json";
 
-const useGitmojiQuizz = () => {
+const useGitmojiQuiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState<EmojiData | null>(
     null
   );
@@ -24,4 +24,4 @@ const useGitmojiQuizz = () => {
   return { currentQuestion, choices, setNewQuestion };
 };
 
-export default useGitmojiQuizz;
+export default useGitmojiQuiz;

@@ -1,23 +1,37 @@
 import React from "react";
-import GitHubButton from "react-github-btn";
+import styled from "styled-components";
 
-const StylableGitHubButton: React.FC<{ className?: string }> = ({
-  className
-}) => {
+const GitHubButton: React.FC = () => {
   return (
-    <div className={className}>
-      <GitHubButton
-        href="https://github.com/lalalilo/gitmemoji"
-        data-color-scheme="no-preference: dark; light: light; dark: light;"
-        data-icon="octicon-star"
-        data-size="large"
-        aria-label="Star lalalilo/gitmemoji on GitHub"
-        data-show-count={true}
-      >
-        Star
-      </GitHubButton>
-    </div>
+    <Button href="https://github.com/lalalilo/gitmemoji">
+      <span role="img" aria-label="star">
+        ⭐️
+      </span>{" "}
+      Github
+    </Button>
   );
 };
 
-export default StylableGitHubButton;
+const Button = styled.a`
+  background-color: #a78674;
+  color: #fff;
+  box-shadow: 0 4px #795548;
+
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 600;
+  padding: 0.75em 1em;
+  transition: none;
+  margin: 0.25em 0;
+  position: relative;
+
+  text-decoration: none;
+
+  &:hover {
+    top: 2px;
+    box-shadow: 0 2px #795548;
+  }
+`;
+
+export default GitHubButton;
