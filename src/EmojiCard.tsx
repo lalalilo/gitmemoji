@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import styled from "styled-components";
 import colors from "./emoji-colors";
 import { EmojiData } from "./EmojiData";
@@ -12,13 +12,13 @@ interface EmojiCardProps {
 const EmojiCard: React.FC<EmojiCardProps> = ({
   emojiData,
   onClick,
-  className
+  className,
 }) => {
   return (
     <Wrapper onClick={onClick} className={className}>
       <EmojiWrapper
         style={{
-          backgroundColor: colors[emojiData.name]
+          backgroundColor: colors[emojiData.name],
         }}
       >
         <Emoji>{emojiData.emoji}</Emoji>
