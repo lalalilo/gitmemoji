@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import "csshake";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import EasyQuiz from "./EasyQuiz";

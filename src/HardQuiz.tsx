@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import * as React from "react";
 import styled from "styled-components";
 import "csshake";
 
@@ -19,14 +20,14 @@ const HardQuiz: React.FC = () => {
       <Question
         onClick={async () => {
           setShake(currentQuestion.name);
-          await new Promise(resolve => setTimeout(resolve, 1000));
+          await new Promise((resolve) => setTimeout(resolve, 1000));
           setShake(null);
         }}
       >
         {currentQuestion.description}
       </Question>
       <HardGrid>
-        {emojis.gitmojis.map(emoji => (
+        {emojis.gitmojis.map((emoji) => (
           <>
             <MinimalEmojiCard
               emojiData={emoji}
@@ -37,7 +38,7 @@ const HardQuiz: React.FC = () => {
                   return setNewQuestion();
                 }
                 setShake(emoji.name);
-                await new Promise(resolve => setTimeout(resolve, 1000));
+                await new Promise((resolve) => setTimeout(resolve, 1000));
                 setShake(null);
               }}
             />

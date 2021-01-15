@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import * as React from "react";
 import styled from "styled-components";
 import "csshake";
 
@@ -18,7 +19,7 @@ const EasyQuiz: React.FC = () => {
       <Question
         onClick={async () => {
           setShake(currentQuestion.name);
-          await new Promise(resolve => setTimeout(resolve, 1000));
+          await new Promise((resolve) => setTimeout(resolve, 1000));
           setShake(null);
         }}
       >
@@ -26,7 +27,7 @@ const EasyQuiz: React.FC = () => {
       </Question>
 
       <EasyGrid>
-        {choices.map(emoji => (
+        {choices.map((emoji) => (
           <EmojiCard
             emojiData={emoji}
             key={emoji.name}
@@ -36,7 +37,7 @@ const EasyQuiz: React.FC = () => {
                 return setNewQuestion();
               }
               setShake(emoji.name);
-              await new Promise(resolve => setTimeout(resolve, 1000));
+              await new Promise((resolve) => setTimeout(resolve, 1000));
               setShake(null);
             }}
           />
