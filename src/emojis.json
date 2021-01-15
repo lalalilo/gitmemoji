@@ -45,9 +45,9 @@
     {
       "emoji": "📝",
       "entity": "&#x1f4dd;",
-      "code": ":pencil:",
+      "code": ":memo:",
       "description": "Writing docs.",
-      "name": "pencil"
+      "name": "memo"
     },
     {
       "emoji": "🚀",
@@ -228,7 +228,7 @@
       "entity": "&#59161;",
       "code": ":pencil2:",
       "description": "Fixing typos.",
-      "name": "pencil"
+      "name": "pencil2"
     },
     {
       "emoji": "💩",

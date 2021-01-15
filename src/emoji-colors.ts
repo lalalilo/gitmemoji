@@ -42,7 +42,7 @@ export default {
   "ok-hand": "#c5e763",
   package: "#fdd0ae",
   "page-facing-up": "#d9e3e8",
-  pencil: "#ffce49",
+  pencil2: "#ffce49",
   penguin: "#fa9a3f",
   poop: "#a78674",
   pushpin: "#39c2f1",
