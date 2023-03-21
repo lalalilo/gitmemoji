@@ -486,7 +486,7 @@
       "emoji": "🛂",
       "entity": "&#1xF6C2;",
       "code": ":passport_control:",
-      "description": "Work on code related to authoriyation, roles and permissions.",
+      "description": "Work on code related to authorization, roles and permissions.",
       "name": "passport-control"
     },
     {
@@ -513,7 +513,7 @@
     {
       "emoji": "🧪",
       "entity": "&#x1F9EA;",
-      "code": "test_tube",
+      "code": ":test_tube:",
       "description": "Add failing test.",
       "name": "test-tube"
     },
@@ -544,6 +544,27 @@
       "code": ":technologist:",
       "description": "Improve developer experience.",
       "name": "technologist"
+    },
+    {
+      "emoji": "💸",
+      "entity": "&#x1F4B8;",
+      "code": ":money_with_wings:",
+      "description": "Add sponsorships or money related infrastructure.",
+      "name": "money-with-wings"
+    },
+    {
+      "emoji": "🧵",
+      "entity": "&#x1F9F5;",
+      "code": ":thread:",
+      "description": "Add or update code related to multithreading or concurrency.",
+      "name": "thread"
+    },
+    {
+      "emoji": "🦺",
+      "entity": "&#x1F9BA;",
+      "code": ":safety_vest:",
+      "description": "Add or update code related to validation.",
+      "name": "safety-vest"
     }
   ]
 }
